@@ -14,12 +14,8 @@ class HomePage extends StatelessWidget {
             tooltip: 'Sair',
             onPressed: () async {
               await FirebaseAuth.instance.signOut();
-              // volta para a tela de login limpando o histórico
               if (context.mounted) {
-                Navigator.of(context).pushNamedAndRemoveUntil(
-                  '/login',
-                  (route) => false,
-                );
+                Navigator.of(context).pushNamedAndRemoveUntil('/login', (r) => false);
               }
             },
             icon: const Icon(Icons.logout),
